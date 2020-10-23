@@ -9,6 +9,9 @@ license = "MIT"
 readme = "./README.md"
 edition = "2018"
 
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = ['-Os']
+
 [lib]
 crate-type = ["cdylib"]
 
@@ -19,11 +22,14 @@ wasm-bindgen-test = "0.3.13"
 # This commit points to Seed 0.7.0 with important fixes.
 # Replace with `seed = "0.8.0"` (or newer) once released.
 seed = { git = "https://github.com/seed-rs/seed", rev = "0a538f0" }
+assert_approx_eq = "1.1.0"
+rand = "0.7.3"
+factorial = "0.2.0"
+mathru = "0.7.3"
+anyhow = "1.0.33"
+thiserror = "1.0.21"
 
 [profile.release]
 lto = true
 opt-level = 'z'
 codegen-units = 1
-
-[package.metadata.wasm-pack.profile.release]
-wasm-opt = ['-Os']
